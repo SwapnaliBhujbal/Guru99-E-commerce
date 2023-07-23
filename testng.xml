@@ -3,10 +3,10 @@
 <suite parallel="methods" name="Suite">
   <test thread-count="5" parallel="methods" name="Test">
     <classes>
+      <class name="guru99.PopupHandleTest"/>
       <class name="guru99.HomePageTest"/>
       <class name="guru99.MobilePageTest"/>
       <class name="guru99.ProductTest"/>
-      <class name="guru99.Scenario4PopupHandleTest"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

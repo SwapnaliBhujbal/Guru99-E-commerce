@@ -3,7 +3,7 @@ package guru99;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class Scenario4PopupHandle {
+public class PopupHandle {
 	
 	WebDriver driver;
 	By addToCompareSonyXperia = By.xpath("//*[@id=\"top\"]/body/div/div/div[2]/div/div[2]/div[1]/div[3]/ul/li[2]/div/div[3]/ul/li[2]/a");
@@ -11,7 +11,7 @@ public class Scenario4PopupHandle {
 	By compareBtn = By.xpath("//button[@title='Compare']");
 	By closeSonyWindow = By.xpath("//button[@class='button']");
 	
-	public Scenario4PopupHandle(WebDriver driver) {
+	public PopupHandle(WebDriver driver) {
 		this.driver = driver;
 	}
 	

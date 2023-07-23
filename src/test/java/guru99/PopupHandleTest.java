@@ -12,13 +12,13 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class Scenario4PopupHandleTest {
+public class PopupHandleTest {
 
 	WebDriver driver;
 	String url ="http://live.techpanda.org/";
 	HomePage home;
 	MobilePage mobile;
-	Scenario4PopupHandle popUpHandle;
+	PopupHandle popUpHandle;
 
 	@BeforeMethod
 	public void setup() {
@@ -30,7 +30,7 @@ public class Scenario4PopupHandleTest {
 		driver.get(url);
 		home = new HomePage(driver);
 		mobile = new MobilePage(driver);
-		popUpHandle = new Scenario4PopupHandle(driver);
+		popUpHandle = new PopupHandle(driver);
 
 	}
 
