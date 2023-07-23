@@ -1,3 +1,4 @@
+package guru99;
 import java.io.File;
 import java.io.IOException;
 import java.time.Duration;
@@ -17,6 +18,9 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import guru99.HomePage;
+import guru99.MobilePage;
+
 public class HomePageTest {
 	
 	WebDriver driver;
@@ -24,6 +28,7 @@ public class HomePageTest {
 	HomePage home;
 	String sortOption;
 	String screenshotDirPath ="E:\\GitRepository\\Guru99-E-commerce\\test-output\\Screenshot\\";
+	MobilePage mobile;
 	
 	
 	@BeforeMethod
@@ -35,9 +40,7 @@ public class HomePageTest {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(1));
 		driver.get(url);
 		home = new HomePage(driver);
-		
-		
-		
+		mobile = new MobilePage(driver);
 	}
 	
 	@Test
@@ -46,11 +49,8 @@ public class HomePageTest {
 		//validate title of the page
 		String expectedTitle = "Home page";
 		String actualTitle = driver.getTitle();
-		if(expectedTitle.equals(actualTitle)) {
-			Assert.assertTrue(true);
-		}else {
-			Assert.assertTrue(false);
-		}
+		Assert.assertEquals(expectedTitle, actualTitle);
+		
 		
 		//validate heading of the page
 		String expectedHeading = "THIS IS DEMO SITE FOR   ";
@@ -65,14 +65,11 @@ public class HomePageTest {
 		//verify title of the page 
 		String expectedTitle1 = "Mobile";
 		String actualTitle1 = driver.getTitle();
-		if(actualTitle1.equals(expectedTitle1)) {
-			Assert.assertTrue(true);
-		}else {
-			Assert.assertTrue(false);
-		}
+		Assert.assertEquals(expectedTitle1, actualTitle1);
+		
 		//test case for sorting
 		sortOption = "Name";
-		home.selectSortByText(sortOption);
+		mobile.selectSortByText(sortOption);
 		
 		//takes scrrenshot
 		File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
