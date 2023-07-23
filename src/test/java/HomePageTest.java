@@ -1,9 +1,14 @@
+import java.io.File;
+import java.io.IOException;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -12,15 +17,13 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-
-
-
 public class HomePageTest {
 	
 	WebDriver driver;
 	String url ="http://live.techpanda.org/index.php/";
 	HomePage home;
 	String sortOption;
+	String screenshotDirPath ="E:\\GitRepository\\Guru99-E-commerce\\test-output\\Screenshot\\";
 	
 	
 	@BeforeMethod
@@ -38,7 +41,7 @@ public class HomePageTest {
 	}
 	
 	@Test
-	public void testTitle() throws InterruptedException {
+	public void testTitle() throws InterruptedException, IOException {
 		
 		//validate title of the page
 		String expectedTitle = "Home page";
@@ -70,6 +73,11 @@ public class HomePageTest {
 		//test case for sorting
 		sortOption = "Name";
 		home.selectSortByText(sortOption);
+		
+		//takes scrrenshot
+		File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+		//String png = ("C:\\Guru99 eCommerce Live Project\\Day01_TestCase1\\Mobile Products are sorted" + scc + ".png");
+		FileUtils.copyFile(scrFile, new File(screenshotDirPath + "sort.png"));
 		
 		//list of mobilephone
 		List<WebElement> mobileList = driver.findElements(By.xpath("//li/div/h2")); 
