@@ -5,6 +5,7 @@
     <classes>
       <class name="guru99.PopupHandleTest"/>
       <class name="guru99.HomePageTest"/>
+      <class name="guru99.CreateAccountTest"/>
       <class name="guru99.MobilePageTest"/>
       <class name="guru99.ProductTest"/>
     </classes>
