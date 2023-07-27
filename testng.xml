@@ -3,6 +3,7 @@
 <suite parallel="methods" name="Suite">
   <test thread-count="5" parallel="methods" name="Test">
     <classes>
+      <class name="guru99.PurchaseProductTest"/>
       <class name="guru99.PopupHandleTest"/>
       <class name="guru99.HomePageTest"/>
       <class name="guru99.CreateAccountTest"/>
